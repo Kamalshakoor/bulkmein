@@ -1,0 +1,135 @@
+@keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  h1{
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 45px;
+    float:left;
+    margin-left: 50px;
+  }
+
+  .logos {
+    overflow: hidden;
+    padding: 40px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+    width: 78%;
+    float: right;
+  }
+
+  .logos:before,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+
+  .logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  }
+
+  .logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  }
+
+  .logos:hover .logos-slide {
+    animation-play-state: paused;
+  }
+
+  .logos-slide {
+    display: inline-flex;
+    animation: 35s slide infinite linear;
+  }
+
+  .logos-slide img {
+    height: 50px;
+    margin: 0 40px;
+  }
+  @media screen and (min-width:370px) and (max-width:430px) {
+    h1{
+      margin-top: 35px;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px;
+      width: 100%;
+      margin-left: 0px !important;
+      text-align: center;
+    }
+    .logos-slide img {
+      height: 40px;
+      margin: 0 40px;
+    }
+    
+  }
+
+  @media screen and (min-width:431px) and (max-width:500px) {
+    h1{
+      margin-top: 35px;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px;
+      width: 100%;
+      margin-left: 0px !important;
+
+    }
+    .logos-slide img {
+      height: 40px;
+      margin: 0 40px;
+    }
+  }
+
+  @media screen and (min-width:505px) and (max-width:670px) {
+    h1{
+      margin-top: 35px;
+      font-size: 25px;
+      text-align: center;
+    width: 100%;
+        font-family: Roboto, sans-serif;
+        margin-left: 0;
+    }
+    .logos-slide img {
+      height: 50px;
+      margin: 0 40px;
+    }
+  }
+  @media screen and (min-width:674px) and (max-width:900px) {
+    h1{
+      margin-top: 35px;
+      font-size: 22px;
+    }
+    .logos-slide img {
+      height: 30px;
+      margin: 0 40px;
+    }
+  }
+  @media screen and (min-width:901px) and (max-width:1230px) {
+    h1{
+      margin-top: 50px;
+      font-size: 30px;
+    }
+    .logos-slide img {
+      height: 40px;
+      margin: 0 40px;
+    }
+  }
+    @media screen and (min-width:370px) and (max-width:647px) {
+      .logos{
+        width:100%;
+      }
+    }

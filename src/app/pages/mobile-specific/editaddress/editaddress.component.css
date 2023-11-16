@@ -1,0 +1,198 @@
+.panel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  max-height: 1000px;
+  overflow-y: auto;
+  width: 546px;
+  padding-top: 10px;
+  position: relative;
+  padding-bottom: 20px;
+  overflow: scroll;
+}
+.close-dialog{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: grey;
+  cursor: pointer;
+}
+.fa-x-mark{
+  color: rgb(80, 78, 78);
+}
+h1{
+  font-size: 40px !important;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.panel .form-control{
+  width: 380px;
+  height: 45px;
+  border: 1px solid rgb(155, 154, 154);
+  margin-bottom: 10px;
+}
+.error{
+  font-size: 14px;
+  margin-top: 2px;
+    text-align: left;
+    align-items: start;
+    width: 68%;
+}
+.input{
+  height: 45px;
+}
+.d-flex{
+  justify-content: space-between;
+}
+.radio{
+  height: 18px;
+  margin-right: 5px;
+}
+.inner-first{
+  color: rgb(73, 73, 73);
+}
+.d-flex a, .inner-first{
+  font-size: 17px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.btn{
+  background-color: rgb(218, 18, 18);
+  width: 380px;
+  text-align: center;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.text-center{
+  text-align: center;
+  font-size: 17px;
+}
+.text-center a{
+  color: rgb(240, 56, 56);
+  text-decoration: underline;
+}
+.black_link{
+  color: black;
+  font-size: 17px;
+  font-weight:500;
+}
+a{
+  cursor: pointer;
+}
+.d-grid{
+  display: inline-block;
+}
+.input-group{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.input-phone-prefix{
+  padding-left: 10px;
+  width: 60px !important;
+}
+.input-phone-postfix{
+  width: 315px !important;
+  font-size: 16px;
+}
+.input-phone-prefix, .input-phone-postfix{
+  padding-left: 10px;
+  border: 1px solid #A4A4A4;
+  border-radius: 5px;
+}
+.d-flex-city-pin{
+  width: 380px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.input-city-prefix{
+  width: 180px !important;
+}
+.input-pincode-postfix{
+  width: 180px !important;
+}
+.input-city-prefix, .input-pincode-postfix{
+  padding-left: 10px;
+  border: 1px solid #A4A4A4;
+  border-radius: 8px !important;
+}
+.input-phone-prefix:focus, .input-phone-postfix:focus, .input-city-prefix:focus, .input-pincode-postfix:focus{
+  outline: none;
+}
+
+@media screen and (max-width:500px) {
+  h1{
+    font-size: 22px !important;
+    margin-bottom: 0px !important;
+  }
+  .panel{
+    width: 100%;
+  }
+  .panel .form-control{
+    width: 290px;
+  }
+  .btn{
+    width: 210px;
+  }
+  .text-center{
+    font-size: 13px;
+  }
+  .d-flex-city-pin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 15px;
+    width: 100%;
+  }
+  .input-city-prefix{
+    width: 140px !important;
+  }
+  .input-pincode-postfix{
+    width: 135px !important;
+  }
+  .btn{
+    width: 290px !important;
+  }
+}
+
+@media screen and (min-width:501px) and (max-width:670px){
+  .panel{
+    width: 100%;
+  }
+  .panel .form-control{
+    width: 300px;
+  }
+  .input-phone-prefix{
+    padding-left: 10px;
+    width: 40px !important;
+  }
+  .input-phone-postfix{
+    width: 260px !important;
+    font-size: 16px;
+  }
+  .d-flex .inner-first, .d-flex a{
+    font-size: 14px;
+  }
+  .btn{
+    width: 300px;
+  }
+  .d-flex-city-pin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 305px;
+  }
+  .input-city-prefix{
+    width: 149px !important;
+  }
+  .input-pincode-postfix{
+    width: 149px !important;
+  }
+}

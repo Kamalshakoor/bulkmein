@@ -1,0 +1,201 @@
+<div class="container cart-container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="section-title">Your Cart</h1>
+      <div class="row row-parent">
+        <div class="col-lg-7">
+          <div class="row container-cart-first-section-row">
+          </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Item({{cart_items.length}})</th>
+                  <th scope="col">Qty</th>
+                  <th scope="text-center">
+                      <div class="text-center">
+                          Total
+                      </div>
+                  </th>
+                  <th scope="col" class="hide-in-mobile">&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody class="table-data-row">
+                <tr *ngFor="let item of cart_items">
+                  <td class="product-info">
+                    <div class="d-flex" >
+                      <a routerLink="/product-details" [queryParams]="{ product_id: item.productId}"><img src="{{item.previewImage}}" alt=""></a>
+                      <div class="d-grid">
+                        <span>{{item.productName}}</span>
+                        <p class="text-danger">{{item.price}}/kg</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="product-quantity">
+                    <div class="cart-quantity-box">
+                      <i class="fa-solid fa-minus" (click)="updateMiniCartQuantity(minicartQuantity,'dec',item.quantityInterval, item.productId, item.minimumQuantity, item.maxQuantity)"></i>
+                      <span class="cart-quantity" #minicartQuantity>
+                        <ng-container *ngIf="cartQty == 0">
+                          {{item.quantity}}
+                        </ng-container>
+                        <ng-container *ngIf="cartQty > 0">
+                          {{cartQty}}
+                        </ng-container>
+                      </span>
+                      <i class="fa-solid fa-plus" (click)="updateMiniCartQuantity(minicartQuantity, 'inc',item.quantityInterval, item.productId, item.minimumQuantity, item.maxQuantity)"></i>
+                    </div>
+                    <a (click)="removeItemFromCart(item.productId)" class="btn btn-link show-in-mobile">Delete</a>
+                  </td>
+                  <td class="row-price">₹ {{ item.quantity * item.price }}</td>
+                  <td class="hide-in-mobile">
+                      <div class="remove-from-cart-icon">
+                          <i class="fa-solid fa-xmark" (click)="removeItemFromCart(item.productId)"></i>
+                      </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="container-subtotal container-colored">
+              <ng-container *ngIf="active_address != 0">
+                <div class="row">
+                  <div class="col-lg-6">Total</div>
+                  <div class="col-lg-6 text-right">₹ {{subtotal}}</div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">Shipping Cost</div>
+                  <div class="col-lg-6 text-right">₹{{shipping_cost.shippingCost}}</div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">Product GST</div>
+                  <div class="col-lg-6 text-right">₹{{shipping_cost.productGst}}</div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">Shipping GST</div>
+                  <div class="col-lg-6 text-right">₹{{shipping_cost.shippingTax}}</div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6 text-danger">Subtotal</div>
+                  <div class="col-lg-6 text-danger text-right">₹{{shipping_cost.orderTotal}}</div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="active_address == 0">
+                <div class="row">
+                  <div class="col-lg-6">Total</div>
+                  <div class="col-lg-6 text-right">₹ {{subtotal}}</div>
+                </div>
+                  <div class="row">
+                  <p class="text-danger">Choose Active Address to calculate Shipping and GST Charges</p>
+                </div>
+              </ng-container>
+
+              <div class="row justify-content-center">
+                <hr style="color: #CBCBCB;width: 94%;border: 1px solid #CBCBCB">
+              </div>
+              <div class="row row-btn justify-content-center">
+                <ng-container *ngIf="cart_items.length > 0">
+                  <button class="btn btn-danger" (click)="PlaceOrder()">Place Your Order</button>
+                </ng-container>
+                <ng-container *ngIf="cart_items.length == 0">
+                  Please Add Something to cart
+                </ng-container>
+              </div>
+            </div>
+            <h1 class="section-title mt-4 row-mobile-promo">Offers</h1>
+            <div class="row row-mobile-promo">
+              <input type="text" class="form-control" placeholder="Enter the promo code">
+              <button class="btn btn-outline-danger">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container delivery-container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="row container-cart-first-section-row">
+              <h1 class="section-title">Delivery Address</h1>
+            </div>
+            <div class="row-delivery" *ngFor="let address of addresses">
+              <div class="column-delivery">
+                <div class="radio-container">
+                    <input type="radio" id="Red" name="colors" value="Red" (click)="setDeliveryAddress(address.addressId)">
+                </div>
+                <div>
+                  <strong>{{address.fullName}}</strong> , {{address.houseNumber}}, {{address.area}}, {{address.city}}, {{address.landmark}}, {{address.state}}, {{address.country}}, {{address.pinCode}}
+                </div>
+              </div>
+            </div>
+            <div class="row-delivery">
+              <div class="column-delivery add_new_address_section" style="cursor: pointer;" (click)="addAddress()">
+                <div class="radio-container">
+                  <i class="fa-solid fa-plus "></i>
+                </div>
+                <div>
+                  &nbsp;&nbsp;&nbsp;Add a new address
+                </div>
+              </div>
+            </div>
+            <div class="row-delivery mt-4">
+              <div class="column-delivery add_new_address_section">
+                <button class="btn btn-outline-danger" (click)="setActiveDeliveryAddress()">Use This Address</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 container-subtotal hide-in-mobile">
+            <div class="row">
+                <h1 class="section-title">Offers</h1>
+            </div>
+            <div class="row">
+                <input type="text" class="form-control" placeholder="Enter the promo code">
+            </div>
+              <div class="row row-promo-code">
+                <span>Promo Code</span>
+                <p>Get ₹500 OFF on your 1st order</p>
+                <div class="promo-flex">
+                <input type="text" class="form-control control-first-order" placeholder="First Order" disabled>
+                <button class="btn btn-outline-danger">Apply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="container payment-method-container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row rowparanets" id="rowparanets">
+        <div class="col-lg-7">
+          <div class="row container-cart-first-section-row">
+            <h1 class="section-title">Payment Method</h1>
+          </div>
+          <div class="row-delivery">
+            <div class="column-delivery">
+              <div class="radio-container">
+                <input type="radio" id="Red" name="payment_method" (click)="setPaymentMethod('Offline')">
+              </div>
+              <div class="payment_method_container">
+                <span class="payment_option">Pay Offline</span>
+                <p class="payment_info">A representative from our team will be reaching out to you shortly.</p>
+              </div>
+          </div>
+          <div class="row-delivery mt-4">
+            <div class="column-delivery column-bank">
+              <div class="radio-container">
+                <input type="radio" id="Red" name="payment_method">
+              </div>
+              <div class="payment_method_container">
+                <img src="assets/hdfcbank.svg" alt="" class="payment_method_img">
+              </div>
+          </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>

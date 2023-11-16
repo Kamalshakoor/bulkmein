@@ -1,0 +1,32 @@
+/* .container{
+    height:400px;
+} */
+.StaticHome-image {
+    margin: 40px 15px;
+}
+.section-title{
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+}
+.mobileImage{
+  display: none;
+}
+@media screen and (min-width: 350px) and (max-width: 600px) {
+.mobileHide{
+  display: none;
+}
+  .mobileImage{
+  display: block;
+}
+.disktopImage{
+  display:none;
+}
+.mobileMb{
+  margin-bottom: 20px;
+}
+.container{
+    height:auto;
+}
+}

@@ -1,0 +1,17 @@
+<div class="panel mt-4">
+    <h1 class="text-center mt-3">Add a New Address</h1>
+    <p class="text-danger text-center">{{error}}</p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="text" class="form-control" [attr.disabled]="isCountryInputDisabled ? true : null" value="Country: India">
+      <input type="text" formControlName="fullname" class="form-control" placeholder="Full Name*">
+      <input type="text" formControlName="house_no" class="form-control" placeholder="Flat, House No., Company, Apartment">
+      <input type="text" formControlName="area" class="form-control" placeholder="Area, Street, Sector, Village">
+      <div class="input-group d-flex-city-pin">
+        <input type="text" formControlName="city" class="input input-city-prefix" placeholder="City">
+        <input type="number" formControlName="pin_code" class="input input-pincode-postfix" placeholder="Pin Code">
+      </div>
+      <input type="text" formControlName="landmark" class="form-control" placeholder="Landmark">
+      <input type="text" formControlName="state" class="form-control" placeholder="State">
+      <button class="btn btn-danger btn-submit" type="submit">Submit</button>
+    </form>
+</div>

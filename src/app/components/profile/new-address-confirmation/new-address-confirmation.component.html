@@ -1,0 +1,16 @@
+<div class="panel">
+    <div class="close-dialog" (click)="closeDialog()">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+    <h1 class="text-center mt-3">Authentication Required</h1>
+    <div class="box">
+        <span>+**-******2692</span>
+    <span>Kin****@organicana.in</span>
+    <span>The OTP has been sent to your Email ID and Ph No.</span>
+    </div>
+
+    <input type="text" name="OTP" id="" class="form-control mt-3" placeholder="Enter OTP" #otp> <br>
+    <!-- <div class="error text-danger">{{otp_error}}</div><br> -->
+    <button class="btn btn-danger" (click)="verifyOTP()">Complete Verification</button><br>
+        <a class="black_link">Resend OTP</a>
+</div>

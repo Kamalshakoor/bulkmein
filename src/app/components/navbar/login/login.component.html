@@ -1,0 +1,31 @@
+<div class="panel">
+    <div class="close-dialog" (click)="closeDialog()">
+        <i class="fa-solid fa-xmark fa-lg"></i>
+    </div>
+    <h1 class="text-center mt-3">Log in</h1>
+    <p class="text-danger  ErrorMessage">{{error}}</p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="username"  class="form-control" placeholder="Email/ Phone No.">
+    <br>
+    <span class="pos-rel">
+    <input [type]="password" formControlName="password"  class="form-control" placeholder="Password">
+    <span class="showpassword"><span (click)="onClick()">
+      <i class="fa fa-eye" aria-hidden="true" *ngIf="!show"></i>
+      <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show"></i>
+    </span>
+    </span>
+</span>
+    <div class="d-block actionblock">
+        <div class="inner inner-first fleft">
+            <input type="checkbox" id="rember" formControlName="remember" class="radio"> <label for="rember">Remember Me</label>
+        </div>
+        <div class="inner inner-second fright">
+            <a (click)="forgetPassword()">Forgot Password?</a>
+        </div>
+    </div>
+    <button class="btn btn-danger" type="submit">Log in</button><br>
+    </form>
+    <span class="starthere-Sec">
+        New to BulkMein? &nbsp;<a (click)="toggleAuth($event)" class="signup-link">Start Here</a>
+    </span><br>
+</div>

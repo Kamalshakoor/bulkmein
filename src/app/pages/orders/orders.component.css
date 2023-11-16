@@ -1,0 +1,284 @@
+.container-profile{
+    margin-top: 55px;
+}
+.col-lg-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    border-right: 1px solid #D9D9D9;
+}
+
+h1{
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+.col-lg-9{
+    z-index: 10;
+    padding-right: 60px;
+    padding-left: 60px;
+    padding-top: 40px;
+}
+.my-orders-section{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+.orders-avatar{
+    margin-bottom: 44px;
+}
+.no-orders-span{
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+.no-orders-p{
+    width: 359px;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 32px;
+}
+.card{
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.card .card-heading{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(217, 217, 217, 0.50);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-heading .card-order-metadata{
+    display: flex;
+    flex-direction: column;
+}
+.card-heading .card-order-metadata span{
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+.card-heading .card-order-metadata p{
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+.card-body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.order-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.order-details-inner{
+    padding-top: 8px;
+    margin-left: 10px;
+}
+.order-details img{
+    width: 99px;
+    height: 99px;
+}
+
+.order-line-item{
+    display: flex;
+    flex-direction: row;
+}
+.order-line-item span{
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+}
+.order-line-item p{
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-left: 5px;
+    width: 290px;
+}
+.order-status{
+    margin-left: 10px;
+    padding: 3px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    border-radius: 32px;
+}
+.waiting{
+    background: #FFF6E4;
+    color: #FCB017;
+}
+
+.recieved{
+    background: #EEEEEE;
+    color: #000000;
+}
+.cancelled{
+    background: #FFE4E4;
+    color: #EE2F27;
+}
+
+.download-order-invoice-icon{
+    width: 12px !important;
+    height: 12.63px !important;
+}
+.order-details a{
+    text-decoration: none;
+    color: #EE2F27;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-left: 5px;
+}
+
+@media screen and (max-width:768px) {
+    .container-profile .col-lg-3{
+        height: 1046px !important;
+    }
+  .card{
+    width: 400px;
+  }
+  .card-body{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items:  center !important;
+  }
+}
+
+@media screen and (max-width:490px) {
+.row-main{
+    justify-content: center !important;
+}
+ .my-orders-section{
+    padding-top: 5px;
+    align-items: center !important;
+ }
+ .orders-avatar{
+    margin-bottom: 24px !important;
+ }
+ .no-orders-p{
+    margin-bottom: 10px !important;
+    width: 90% !important;
+ }
+ .my-orders-section .btn-outline-danger{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+ }
+ .card{
+    width: 280px;
+ }
+ .card-heading{
+    display: flex !important;
+    flex-wrap: wrap !important;
+ }
+ .first-order-details{
+    display: flex !important;
+    flex-direction: column !important;
+ }
+ .first-order-details img{
+    margin-bottom: 25px;
+ }
+}
+
+@media screen and (max-width:995px) {
+    h1{
+        font-size: 22px;
+    }
+    .container-profile .col-lg-3{
+        border: none;
+        width: 15%;
+        border-right: 1px solid #dedede;
+        height: 1018px;
+        padding-right: 0px;
+        padding-left: 0px;
+        padding-top: 20px;
+        position: absolute;
+        z-index: 11;
+    }
+
+    .container-profile .col-lg-9{
+        margin-left: 10%;
+        width: 90%;
+    }
+    .order-line-item span, .card-heading .card-order-metadata span{
+        font-size: 13px !important;
+    }
+    .card-heading .card-order-metadata p{
+        font-size: 12px !important;
+    }
+    .order-line-item p {
+        width: 150px !important;
+        font-size: 12px !important;
+    }
+    .order-details a{
+        font-size: 13px !important;
+    }
+}
+
+@media screen and (min-width:360px) and (max-width: 600px) {
+    h1{
+        color: #000;
+        font-family: Poppins;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+    }
+    .col-lg-3{
+        display: none !important;
+    }
+    .col-lg-9{
+        margin-left: 0px !important;
+        padding: 0px !important;
+    }
+    .row-main{
+        margin: 0px !important;
+    }
+    .my-orders-section{
+        align-items: flex-start;
+    }
+    .card{
+        width: 100%;
+    }
+}
+

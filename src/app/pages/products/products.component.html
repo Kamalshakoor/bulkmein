@@ -1,0 +1,61 @@
+<div>
+	<div class="products-hero">
+		<div>
+			<div class="layer-images">
+				<img src="assets/products-hero-layer1.png" alt="" class="products-hero-layer1">
+				<img src="assets/products-hero-layer2.png" alt="" class="products-hero-layer2">
+			</div>
+			<h1 class="section-title hero-heading">Buy it <br> Bulk Mein</h1>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row mt-5" >
+			<div class="col-lg-12">
+				<div class="d-flex justify-content-center tabbed-window">
+					<ng-container *ngFor="let category of super_categories">
+						<ng-container *ngIf="tab_checked == false && category.spCatidx == 0; then ifBlock else elseBlock"></ng-container>
+						<ng-template #ifBlock>
+							<div (click)="toggleAndFetchProducts($event)" [attr.data_spCatId]="category.spCatidx" class="tab-prod active-tab" *ngIf="screenWidth>600">{{category.spCatName}}</div>
+							<div (click)="toggleAndFetchProducts($event)" [attr.data_spCatId]="category.spCatidx" class="tab-prod active-tab active-tab-mobile" *ngIf="screenWidth<600">{{category.spCatName}}</div>
+						  </ng-template>
+						  <ng-template #elseBlock>
+							<div (click)="toggleAndFetchProducts($event)" [attr.data_spCatId]="category.spCatidx" class="tab-prod">{{category.spCatName}}</div>
+						  </ng-template>
+					</ng-container> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-products" *ngFor="let item of data[0]?.subCategories">
+		<div class="justify-content-center">
+			<h1 class="section-title">{{item.subCategoryName}}</h1>
+			<div class="col-lg-12">
+				<div class="col-lg-3" *ngFor="let product of item.products">
+					<div class="card shadow">
+						<div class="card-heading">
+							<a routerLink="/product-details" [queryParams]="{ product_id: product.productId }"><img class="card-img-top" src="{{product.previewImageS3url}}" alt="Card image cap"></a>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">{{ product.productName.length > 10 ? product.productName.slice(0, 12) + '...' : product.productName }}</h5>
+							<select class="form-select">
+								<option selected>Select KG</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+							</select>
+							<div class="d-flex-price mt-2">
+								<h5>₹ {{ product.price }}</h5>
+								<button class="btn btn-danger" style="border-radius: 7px;" (click)="addToCart(product.productId)">Add</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ng-container *ngIf="item.products.length === 0;">
+					<h2 class="no-product">
+						No product available!
+					</h2>
+				</ng-container>					
+			</div>
+		</div>
+	</div>
+</div>

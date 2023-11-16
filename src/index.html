@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BulkMein</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  body{
+    font-family: poppins;
+    overflow-x: hidden;
+  }
+</style>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+
+  <script>
+    document.body.addEventListener("click", function(e){
+      if(!event.target.classList.contains("mini-cart-popup")){
+        const mini_cart = document.querySelector(".card-cart");
+        const triangle = document.querySelector(".triangle");
+        if(!mini_cart.classList.contains("hidden")){
+          mini_cart.classList.add("hidden")
+          triangle.classList.add("hidden")
+        }
+      }
+      const navbar = document.querySelector(".navbar");
+      if ( navbar.classList.contains("nav--expanded") && !event.target.classList.contains("nav__collapser") && !event.target.classList.contains("search-box-desktop")) {
+        navbar.classList.remove("nav--expanded")
+      }
+    })
+  </script>
+</body>
+</html>

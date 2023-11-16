@@ -1,0 +1,317 @@
+<img src="assets/faq-layer.png" alt="" class="faq-layer">
+<div class="container-faq">
+    <h1 class="text-center mt-5 mobileMargin">FAQ</h1>
+    <div class="row mt-5" >
+        <div class="col-lg-12">
+            <div class="d-flex justify-content-center mobile-responsive-tab">
+                <div class="faq faq-1 active-tab" (click)="ToggleFaqTab($event)">Account & Ordering</div>
+                <div class="faq faq-2"  (click)="ToggleFaqTab($event)">Delivery & Shipping</div>
+                <div class="faq faq-3" (click)="ToggleFaqTab($event)">Payment</div>
+                <div class="faq faq-4" (click)="ToggleFaqTab($event)">Returns & Support</div>
+            </div>
+        </div>
+    </div>
+    <container-element [ngSwitch]="opened_faq_tab">
+        <some-element *ngSwitchCase="1">
+            <div class="panel-faq-questions faq-questions-1">
+                <div class="row-question justify-content-center">
+                    <!-- Q1 -->
+                    <div class="col-lg-7">
+                        <strong>How do I create my BulkMein Account?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-1 fa-solid fa-minus open"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__1">
+                          It's easy, go to our login page (Click on New user/Signup) or <a class="curser-pointer" (click)="logincheck()">click here,</a> fill your basic
+                          credentials and submit.
+                          Congratulations! You are part of BulkMein gang now.
+                        </div>
+                    </div>
+                    <!-- Q1 end  -->
+                     <!-- Q2  -->
+                    <div class="col-lg-7">
+                        <strong>How do I place an order?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-2 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__2 hidden">
+                          To place your order follow 3 simple steps mentioned below:<br>
+                            <ol>
+                                <li>Step 1: Add products to your cart</li>
+                                <li>Step 2: Go to checkout and add your delivery address</li>
+                                <li>Step 3: Review your order and make payment</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- Q2 end -->
+                    <div class="col-lg-7">
+                        <strong>What is the minimum order quantity?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-3 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__3 hidden">
+                          Our minimum order quantity is 25kg, which can consist of one single product or multiple
+                          products with overall weight of 25kg or more. <br>
+                            <ol>
+                                <li>Minimum order quantity per product – 5 Kgs</li>
+                                <li>Minimum Buying Quantity – 25 kgs</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- Q3  -->
+                    <div class="col-lg-7">
+                        <strong>How do I know if my order was placed successfully?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-4 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__4 hidden">
+                          Sit back and relax. You’ll receive a confirmation message once your order is confirmed. You’ll
+                          receive another message once your order is shipped
+                          Your Invoice, Eway Bill, Tracking Details and other detail will also be available on your order
+                          page. <br>
+                        </div>
+                    </div>
+                    <!-- Q3 end -->
+                      <!-- Q5  -->
+                      <div class="col-lg-7">
+                        <strong>How do I cancel the order I have placed?</strong>
+                        <span class="faq-action float-end">
+                          <a (click)="ToggleFaq($event)"><i class="q-5 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__5 hidden">
+                        Tap on “My Orders” section under the main menu of your Website and then select the order
+                        you want to cancel. The &#39;Cancel&#39; option will only be available before your order is shipped. If
+                        you are facing an issue, please email us at <a href="mailto:contact@bulkmein.com">contact@bulkmein.com</a> or call us on
+                        <a href="tel:+911234567890">+911234567890</a> and we will sort it for you.
+                         <br>
+                        </div>
+                      </div>
+                      <!-- Q5 end -->
+                      <!-- Q6  -->
+                      <div class="col-lg-7">
+                        <strong>How do I check status of my order?</strong>
+                        <span class="faq-action float-end">
+                          <a (click)="ToggleFaq($event)"><i class="q-6 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__6 hidden">
+                          It's simple, go to my order section on your profile and select the order for which you want to
+                          know status.
+                          <br>
+                        </div>
+                      </div>
+                      <!-- Q6 end -->
+                </div>
+            </div>
+        </some-element>
+        <some-element *ngSwitchCase="2">
+            <div class="panel-faq-questions faq-questions-1">
+                <div class="row-question justify-content-center">
+                    <!-- Q1 -->
+                    <div class="col-lg-7">
+                        <strong>How do I track my order?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-1 fa-solid fa-minus open"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__1">
+                            You can track your order once it has been dispatched from our warehouse. An email/SMS
+                            notification will be sent with a tracking link.
+                            You can also track it from your account on the website by Selecting ‘Orders’ from the top
+                            right corner and then Downloading the tracking receipt. You can then track your
+                            consignment from our designated delivery partner’s portal.
+                        </div>
+                    </div>
+                    <!-- Q1 end  -->
+
+                    <!-- Q2  -->
+                    <div class="col-lg-7">
+                        <strong>How long will it take for my order to be delivered?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-2 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__2 hidden">
+                          Once shipped, our products are typically delivered in 3-5 business days in metros, and 5-7
+                          business days for the rest of India. Delivery time may vary depending upon the shipping
+                          address and other factors (public holidays, extreme weather conditions, etc.).
+                        </div>
+                    </div>
+                    <!-- Q2 end -->
+                    <div class="col-lg-7">
+                        <strong>Can I modify the shipping address of my order before it has been shipped?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-3 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__3 hidden">
+                          Yes, you can modify the shipping address before order is shipped. Call us at <a href="tel:+911234567890">+911234567890</a>
+                          and our executive will assist you with it.
+                        </div>
+                    </div>
+                    <!-- Q3  -->
+                    <div class="col-lg-7">
+                        <strong>Are there any additional shipping charges?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-4 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__4 hidden">
+                          Shipping charges are calculated based on order quantity and delivery address at the time of
+                          checkout. There are no hidden charged thereafter. In case if customer raises request to
+                          modify the shipping address the difference in shipping amount has to be paid by the
+                          customer.
+                        </div>
+                    </div>
+                    <!-- Q3 end -->
+                    <!-- Q5  -->
+                    <div class="col-lg-7">
+                      <strong>What if my order is undelivered?</strong>
+                      <span class="faq-action float-end">
+                        <a (click)="ToggleFaq($event)"><i class="q-5 fa-solid fa-plus"></i></a>
+                      </span>
+                      <div class="answer mt-4 answer__5 hidden">
+                      Our delivery partner will re-attempt the delivery. Still if our courier partners are unable to
+                      deliver the product and they send it back to us, we will initiate a refund to your source
+                      account within 2-3 working days.
+                      </div>
+                    </div>
+                    <!-- Q5 end -->
+                    <!-- Q6  -->
+                    <div class="col-lg-7">
+                      <strong>What if my address is not serviceable?</strong>
+                      <span class="faq-action float-end">
+                        <a (click)="ToggleFaq($event)"><i class="q-6 fa-solid fa-plus"></i></a>
+                      </span>
+                      <div class="answer mt-4 answer__6 hidden">
+                        Don’t worry. Reach us out at <a href="tel:+911234567890">+911234567890</a> or write to us on <a href="mailto:contact@bulkmein.com">contact@bulkmein.com</a>
+                        <a href="tel:+911234567890">+911234567890</a> and
+                        our executive will help you with alternate delivery options.
+                      </div>
+                    </div>
+                    <!-- Q6 end -->
+                </div>
+            </div>
+        </some-element>
+        <some-other-element *ngSwitchCase="3">
+            <div class="panel-faq-questions faq-questions-1">
+                <div class="row-question justify-content-center">
+                    <!-- Q1 -->
+                    <div class="col-lg-7">
+                        <strong>What should I do if my payment fails?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-1 fa-solid fa-minus open"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__1">
+                            In case there is a failure in payment, please retry and keep the following things in mind: <br>
+                            <ol>
+                                <li>Please confirm if the information you’ve provided is correct i.e. account details, billing
+                                address, and password (for Net Banking); and that your internet connection wasn’t
+                                disrupted during the process.</li>
+                                <li>If your account has been debited even after a payment failure, it is normally rolled back
+                                to your bank account within 7-10 business days. For any further clarification, you can
+                                email us at contact@bulkmein.com or at 919999999. ( add new mail for payments)</li>
+                            </ol>
+
+                        </div>
+                    </div>
+                    <!-- Q1 end  -->
+
+                    <!-- Q2  -->
+                    <div class="col-lg-7">
+                        <strong>What payment methods do you accept?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-2 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__2 hidden">
+                          We accept all type of payment methods such as Debit Card, Credit Card, Netbanking or UPI.
+                        </div>
+                    </div>
+                    <!-- Q2 end -->
+                    <div class="col-lg-7">
+                        <strong>Is there Cash on Delivery (COD) option available?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-3 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__3 hidden">
+                          Sorry, currently we do not accept COD order.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </some-other-element>
+        <some-element *ngSwitchCase="4">
+            <div class="panel-faq-questions faq-questions-1">
+                <div class="row-question justify-content-center">
+                    <!-- Q1 -->
+                    <div class="col-lg-7">
+                        <strong>What are the terms of return policy?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-1 fa-solid fa-minus open"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__1">
+                          If you have issues with the product quality, raise a return request with 48 hours of delivery
+                          by calling us at <a href="tel:+911234567890">+911234567890</a> or write to us at <a href="mailto:contact@bulkmein.com">contact@bulkmein.com</a>. Please seal the bag
+                          properly for return shipping and make sure quantity is same as received. To know more
+                          about our return policy <a href="#">click here</a>.
+                        </div>
+                    </div>
+                    <!-- Q1 end  -->
+
+                    <!-- Q2  -->
+                    <div class="col-lg-7">
+                        <strong>What are the terms of exchange policy?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-2 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__2 hidden">
+                            In case your product is damaged during the transit, raise a request for exchange of product
+                            within 24 hours of delivery by calling us at <a href="tel:+911234567890">+911234567890</a> or write to us at
+                            <a href="mailto:contact@bulkmein.com">contact@bulkmein.com</a> &amp; our executive will assist you with the exchange process. Please
+                            mention “Damaged Goods Received” on the receiving/proof of Delivery given to the delivery
+                            partner. To know more about of exchange policy click here.
+                        </div>
+                    </div>
+                    <!-- Q2 end -->
+                    <div class="col-lg-7">
+                        <strong>When will I receive my refund?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-3 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__3 hidden">
+                          Refund process is initiated once the return is complete. This usually takes 2-3 working days
+                          after the return material is received at our warehouse.
+                        </div>
+                    </div>
+                    <!-- Q3  -->
+                    <div class="col-lg-7">
+                        <strong>How do I create a return/exchange request?</strong>
+                        <span class="faq-action float-end">
+                            <a (click)="ToggleFaq($event)"><i class="q-4 fa-solid fa-plus"></i></a>
+                        </span>
+                        <div class="answer mt-4 answer__4 hidden">
+                          To raise a return/exchange request call us on +91234567890 or write to us at
+                          contact@bulkmein.com and someone from our team will assist you with the
+                          return/exchange.
+                        </div>
+                    </div>
+                    <!-- Q3 end -->
+                    <!-- Q5  -->
+                    <div class="col-lg-7">
+                      <strong>I have created a return request. When will the product be picked up?</strong>
+                      <span class="faq-action float-end">
+                        <a (click)="ToggleFaq($event)"><i class="q-5 fa-solid fa-plus"></i></a>
+                      </span>
+                      <div class="answer mt-4 answer__5 hidden">
+                      Once we receive this request, someone from the courier partner&#39;s team will arrive at the
+                      address for a pickup within 2 business days. In case if pickup is unavailable for your location,
+                      you can self-ship the product to our address and we compensate your courier charges with
+                      the refund amount.<br>
+                      How to apply for coupons?<br>
+                      Are the price inclusive of taxes?<br>
+                      No, the price is exclusive of taxes and logistics?
+                      </div>
+                    </div>
+                    <!-- Q5 end -->
+                </div>
+            </div>
+        </some-element>
+      </container-element>
+
+</div>

@@ -1,0 +1,152 @@
+<div class="container container-top">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="row col-pk">
+            <div class="col-lg-3 alter-images">
+              <div class="panel">
+                <swiper-container
+                slides-per-view="4"
+                navigation="true"
+                speed="500" loop="true"
+                class="products-section">
+                  <swiper-slide *ngFor="let image of data.productImages">
+                    <img (click)="changeActiveImage($event)" src="{{image.image}}" alt="" class="prod_img">
+                  </swiper-slide>
+                </swiper-container>
+              </div>
+            </div>
+            <div class="col-lg-4 col-active-img">
+              <img *ngIf="data.productImages && data.productImages.length > 0" src="{{data.productImages[0]?.image}}" class="img-active">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 py-3 px-3 row-cart-sidebar">
+          <div class="mobile-responsive-product-info">
+            <h2 class="mb-4 product-name"> {{data.productName}} </h2>
+            <span class="botanical-name">Botanical Name</span>
+            <h3 class="mt-4" *ngIf="logged_in">$ {{data.price}}</h3>
+            <h3 class="mt-4" *ngIf="logged_in == false">₹ XXX</h3>
+          </div>
+          <span class="botanical-name-mobile">Botanical Name</span>
+          <hr>
+          <div class="row row-details-form">
+            <div class="col-lg-12 variations">
+              <select class="form-select" #quantity>
+                <option selected>Select KG</option>
+                <option value="{{i}}" *ngFor="let i of getRange()">{{i}}</option>
+              </select>
+              <select class="form-select" *ngIf="data.variation != null && data.variation != []" (change)="getProductByVariationId($event)">
+                <option selected>Quality</option>
+                <option value="{{variation.variationId}}" *ngFor="let variation of data.variation">{{variation.variationName}}</option>
+              </select>
+              <select class="form-select"  *ngIf="data.quantityVariation != null && data.variation != []" (change)="getProductByQuantityVariationId($event)">
+                <option selected>Variation</option>
+                <option value="{{qtyVariation.quantityVariationId}}" *ngFor="let qtyVariation of data.quantityVariation">{{qtyVariation.quantityVariationName}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <button class="btn btn-danger btn-add-to-cart" (click)="addToCart(quantity)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="benefits-section">
+  <div class="container py-3">
+    <div class="row mt-5" >
+      <div class="col-lg-12 mt-2">
+        <div class="d-flex d-flex-tab justify-content-center">
+          <div class="tab-a active-tab" id="1" href="#" (click)="changeActiveTab($event)" >Description</div>
+          <div class="tab-a" id="2" href="#" (click)="changeActiveTab($event)">Specifications</div>
+          <div class="tab-a" id="3" href="#" (click)="changeActiveTab($event)">Purity Home Tests</div>
+          <div class="tab-a" id="4" href="#" (click)="changeActiveTab($event)">Quality Checks</div>
+        </div>
+      </div>
+    </div>
+    <container-element [ngSwitch]="tab">
+      <some-element *ngSwitchCase="1">
+        <div class="row justify-content-center mt-5">
+          <h2 class="description-section-title">Benefits</h2>
+          <div class="col-lg-12 honey-section">
+            <div class="row row-first-section">
+              <div class="col-lg-4 col-first-icons-tab">
+                <div class="row row-f mb-5">
+                  <div class="col-lg-2">
+                    <img src="assets/details-setting.png" class="mini-icon">
+                  </div>
+                  <div class="col-lg-9 px-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing.
+                  </div>
+                </div>
+                <div class="row row-f">
+                  <div class="col-lg-2">
+                    <img src="assets/product-details-hanging.png" class="mini-icon">
+                  </div>
+                  <div class="col-lg-9 px-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing.
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 product-tab-active">
+                  <img src="assets/product-details-first-tab.png">
+              </div>
+              <div class="col-lg-4 col-first-icons-tab">
+                <div class="row row-f mb-5">
+                  <div class="col-lg-9 px-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing.
+                  </div>
+                  <div class="col-lg-2">
+                    <img src="assets/product-details-meter.png" class="mini-icon">
+                  </div>
+                </div>
+                <div class="row row-f mb-5">
+                  <div class="col-lg-9 px-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing.
+                  </div>
+                  <div class="col-lg-2">
+                    <img src="assets/product-details-heart.png" class="mini-icon">
+                  </div>
+                </div>
+                <div class="row row-f">
+                  <div class="col-lg-9 px-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing.
+                  </div>
+                  <div class="col-lg-2">
+                    <img src="assets/product-details-hanging.png" class="mini-icon">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </some-element>
+      <div class="row justify-content-center specification mt-5">
+        <some-element *ngSwitchCase="2">
+          <h5>We Make Sure to be very precise with our packaging so you can enjoy every delicious drop</h5>
+          <ul>
+            <li>Quality features 1</li>
+            <li>Quality features 1</li>
+            <li>Quality features 1</li>
+            <li>Quality features 1</li>
+          </ul>
+          <br>
+          <h5>We Make Sure to be very precise with our packaging so you can enjoy every delicious drop</h5>
+          <span>Processed in a facility that makes it easy for the customers</span>
+          <br> <br>
+          <h5>Shelf Life</h5>
+          <span>Processed in a facility that makes it easy for the customers</span>
+          <br> <br>
+          <h5>Storage</h5>
+          <span>Processed in a facility that makes it easy for the customers</span>
+        </some-element>
+      </div>
+    </container-element>
+  </div>
+</div>
+<app-products-slider></app-products-slider>

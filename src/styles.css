@@ -1,0 +1,66 @@
+.mobile-view .owl-theme .owl-dots .owl-dot span,
+.container-partner .owl-theme .owl-dots .owl-dot span{
+  width: 20px;
+  height: 5px;
+}
+.mobile-view  .owl-theme .owl-dots .owl-dot.active span, .mobile-view  .owl-theme .owl-dots .owl-dot:hover span,
+.container-partner .owl-theme .owl-dots .owl-dot.active span, .mobile-view  .owl-theme .owl-dots .owl-dot:hover span {
+    background: #ee342c;
+}
+.owl-carousel .owl-item img.happy-company{
+    width: 50px !important;
+}
+.container-partner .owl-theme .owl-nav div{
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 25px;
+}
+.container-partner .owl-theme .owl-nav div.owl-next{
+    right: -30px;
+    background: #fff;
+    height: 40px;
+    width: 40px;
+    color: #333;
+    font-size: 20px;
+    line-height: 35px;
+    border-radius: 20px;
+}
+.container-partner .owl-theme .owl-nav div.owl-prev{
+    left: -30px;
+    background: #fff;
+    height: 40px;
+    width: 40px;
+    color: #333;
+    font-size: 20px;
+    line-height: 35px;
+    border-radius: 20px;
+}
+.container-partner .owl-theme .owl-dots{
+  display:none;
+}
+.BannerCarosel .owl-theme .owl-dots .owl-dot span{
+width: 30px;
+height: 7px;
+border: 1px solid;
+background: transparent;
+}
+.BannerCarosel .owl-theme .owl-dots .owl-dot.active span, .BannerCarosel .owl-theme .owl-dots .owl-dot:hover span {
+    background: #ee2f27;
+    border: 1px solid #ee2f27;
+}
+.BannerCarosel .owl-theme .owl-nav.disabled+.owl-dots {
+    margin-top: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+@media screen and (min-width: 350px) and (max-width: 600px) {
+  .container-partner .owl-theme .owl-dots{
+  display:block;
+    text-align: left;
+    margin-left: 150px;
+}
+}

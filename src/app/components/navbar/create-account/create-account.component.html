@@ -1,0 +1,16 @@
+<div class="panel">
+    <a class="close-dialog" (click)="closeDialog()">
+        <i class="fa-solid fa-xmark"></i>
+    </a>
+    <h1 class="text-center mt-3">Create Account</h1>
+    <p class="text-danger text-center">{{form_error}}</p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="full_name" class="form-control" placeholder="Full Name">
+        <input type="text" formControlName="company_name" class="form-control" placeholder="Company Name">
+        <input type="file" id="gst"  class="form-control" placeholder="Upload GST File">
+        <input type="file" id="pan" class="form-control" placeholder="Upload PAN File">
+        <input type="text" formControlName="fsai" class="form-control" placeholder="FSSAI No.">
+        <input type="password" formControlName="password" class="form-control" placeholder="Password">
+        <button type="submit" class="btn btn-danger">Create Account</button>
+      </form>      
+</div>

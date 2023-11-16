@@ -1,0 +1,164 @@
+<nav class="nav navbar navbar-real position-fixed" [ngClass]="{'nav--expanded': !isNavbarCollapsed}" style="margin-bottom: 100px;">
+    <img class="nav__collapser" (click)="toggleNavbar()" src="https://raw.githubusercontent.com/JamminCoder/grid_navbar/master/menu.svg" alt="Collapse">
+    <a href="/" class="nav__brand">
+      <img src="assets/logo.svg" alt="" class="img-logo">
+    </a>
+    <div class="d-flex group-nav-icons show-in-mobile mobile-nav-icons">
+      <a class="nav-link-a" *ngIf="logged_in == true">
+        <button type="button" class="btn position-relative btn-user" (click)="openSearch()">
+          <img src="assets/Search.svg" class="img-search">
+        </button>
+      </a>
+      <!-- If User is not logged in  -->
+      <a class="nav-link-a " *ngIf="logged_in == false">
+        <button type="button" class="btn position-relative btn-danger btn-login-mobile" (click)="openDialog()">
+          Login
+        </button>
+      </a>
+      <!-- if User is Logged in  -->
+      <a class="nav-link-a" routerLink="/profile"  *ngIf="logged_in == true">
+        <button type="button" class="btn position-relative btn-user">
+          <img src="assets/Profile.png" class="img-profile">
+        </button>
+      </a>
+      <a class="nav-link-a mini-cart-popup nav-link-short" (click)="openCart()" *ngIf="logged_in == true && screenWidth < 600">
+        <button type="button" class="btn btn-cart position-relative mt-2 mini-cart-popup mobile-cart" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="26" fill="currentColor" class="bi bi-bag mini-cart-popup" viewBox="0 0 16 16">
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+          </svg>
+          <span class="position-absolute top-0 start-90 translate-middle badge item-count rounded-pill bg-danger">
+           <ng-container *ngIf="cart_items.length<10">
+            {{cart_items.length}}
+           </ng-container>
+           <ng-container *ngIf="cart_items.length>9">
+            9+
+           </ng-container>
+          </span>
+        </button>
+      </a>
+    </div>
+    <!-- Conditionally display collapsible content -->
+    <div class="nav__collapsable">
+      <div class="input-group group-search" [ngClass]="isLogin ? 'loggedin' : 'notlogin'" *ngIf="screenWidth>500">
+        <div class="form-outline">
+          <input type="text" class="search-box search-box-desktop" placeholder="Search..." (input)="search($event)"/>
+        </div>
+        <button type="button" class="btn btn-search">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+        <div class="card-results shadow">
+          <div class="card-body">
+            <a routerLink="/product-details" (click)="clearResults()" [queryParams]="{ product_id: product.id }" *ngFor="let product of matching_products">
+              <div class="search-results">
+                {{product.name}}
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a class="nav-link-a" style="width: 170px;" href="#" routerLink="about-us">About Us</a>
+      <a class="nav-link-a a-lg cur-pointer" (click)="logincheck()">Our Products</a>
+      <a class="nav-link-a a-lg"  href="#" routerLink="/support">Support Hub</a>
+      <a class="nav-link-a a-lg"  href="#" routerLink="/profile" *ngIf="screenWidth<600 && logged_in">My Account</a>
+      <a class="nav-link-a a-lg"  href="#" routerLink="/my-orders" *ngIf="screenWidth<600 && logged_in">Orders</a>
+      <a class="nav-link-a a-lg"  (click)="Logout()" *ngIf="screenWidth<600 && logged_in">Logout</a>
+      <div class="d-flex group-nav-icons">
+        <a class="nav-link-a mini-cart-popup nav-link-short" (click)="openCart()" *ngIf="logged_in == true && screenWidth > 600">
+          <button type="button" class="btn btn-cart position-relative mt-2 mini-cart-popup">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="26" fill="currentColor" class="bi bi-bag mini-cart-popup" viewBox="0 0 16 16">
+              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+            </svg>
+            <span class="position-absolute top-0 start-90 translate-middle badge item-count rounded-pill bg-danger">
+             <ng-container *ngIf="cart_items.length<10">
+              {{cart_items.length}}
+             </ng-container>
+             <ng-container *ngIf="cart_items.length>9">
+              9+
+             </ng-container>
+            </span>
+          </button>
+        </a>
+        <!-- If User is not logged in  -->
+        <a class="nav-link-a" *ngIf="logged_in == false && screenWidth > 600">
+          <button type="button" class="btn position-relative btn-danger" (click)="openDialog()">
+            Login
+          </button>
+        </a>
+        <!-- if User is Logged in  -->
+        <a class="nav-link-a" routerLink="/profile"  *ngIf="logged_in == true && screenWidth > 600">
+          <button type="button" class="btn position-relative btn-user">
+            <img  src="assets/Profile.png">
+          </button>
+        </a>
+      </div>
+    </div>
+</nav>
+<!--------------------------->
+<!-- Mobile Screen Search  -->
+<!--------------------------->
+<div class="navbar-search overlay hidden">
+  <nav class="nav navbar position-fixed">
+    <div class="nav-search-mobile">
+      <div class="main-search">
+        <div class="input-group">
+          <input type="text" class="search-control" placeholder="Search ..." (input)="search($event)">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <span class="cancel-search" (click)="closeSearch()">cancel</span>
+    </div>
+  </nav>
+  <div class="search-results-mobile">
+    <a href="/product-details?product_id={{product.id}}" (click)="clearResults()" *ngFor="let product of matching_products">
+      <div class="search-results">
+        {{ product.name.length > 20 ? (product.name).substring(0, 20) + '...' : product.name }} <br>
+      </div>
+    </a>
+  </div>
+</div>
+<!--------------------------->
+<!-- Mobile Screen Search  -->
+<!--------------------------->
+  <br>
+  <br>
+
+  <!-- <img src="assets/mini_cart_arrow.png" alt="" class="mini-cart-arrow"> -->
+  <div class="triangle hidden"></div>
+  <div class="card-cart mini-cart-popup card shadow  hidden">
+    <div class="card-body mini-cart-popup ">
+      <div class="cart-item-section">
+        <div class="row row-mini-cart-item mini-cart-popup" *ngFor="let item of cart_items">
+          <div class="col-lg-5 first mini-cart-popup ">
+            <div class="d-flex-mini-cart mini-cart-popup">
+              <img src="{{item.previewImage}}" class="mini-cart-popup">
+              <div class="d-grid mini-cart-popup">
+                  <span class="mini-cart-popup"> {{item.productName}} </span>
+                <p class="text-danger mini-cart-popup"> {{item.price}}/kg</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 second mini-cart-popup">
+            <div class="cart-quantity-box mini-cart-popup">
+              <i class="fa-solid fa-minus mini-cart-popup" (click)="updateMiniCartQuantity(minicartQuantity,'dec',item.quantityInterval, item.productId, item.minimumQuantity, item.maxQuantity)"></i>
+              <span class="cart-quantity mini-cart-popup" #minicartQuantity>{{item.quantity}}</span>
+              <i class="fa-solid fa-plus mini-cart-popup" (click)="updateMiniCartQuantity(minicartQuantity,'inc',item.quantityInterval, item.productId, item.minimumQuantity, item.maxQuantity)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex-bottom mini-cart-popup">
+          <span class="pricing mini-cart-popup">Subtotal</span>
+          <span class="pricing mini-cart-popup">{{subtotal}}</span>
+      </div>
+      <a routerLink="/cart">
+        <div class="row mini-cart-popup">
+          <button class="btn btn-danger">Checkout</button>
+      </div>
+      </a>
+    </div>
+  </div>

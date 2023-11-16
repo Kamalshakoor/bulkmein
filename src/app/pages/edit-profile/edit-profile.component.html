@@ -1,0 +1,44 @@
+<div class="container-profile">
+    <div class="col-lg-12">
+        <div class="row row-main">
+            <div class="col-lg-3">
+                <app-user-profile-sidebar active="profile"></app-user-profile-sidebar>
+            </div>
+            <div class="col-lg-9">
+                <div class="row-eidt-personal-details">
+                    <div class="d-flex mb-2">
+                        <h1>Change Password</h1>
+                    </div>
+                    <div class="show-in-mobile">
+                        <div class="row-input-span row-forget">
+                            <div class="row-input-forget">
+                                <input type="password" name="name" class="form-input" #mobPassword placeholder="New Password">
+                            </div>
+                        </div>
+                        <div class="row-input-span">
+                            <input type="password" name="name" class="form-input" #mobConfirmPassword placeholder="Enter Again">
+                        </div>
+                    </div>
+                    <div class="edit-bottom">
+                        <div class="row-input-span row-forget">
+                            <span>New Password</span>
+                            <div class="row-input-forget">
+                                <input type="password" name="name" class="form-input" #password>
+                            </div>
+                        </div>
+                        <div class="row-input-span">
+                            <span>Re-Enter Password</span>
+                            <input type="password" name="name" class="form-input" #confirmpassword>
+                        </div>
+                    </div>
+
+                    <div class="row-btns">
+                        <button class="btn btn-danger ml-0" *ngIf="screenWidth<600" (click)="updateProfile(mobPassword, mobConfirmPassword)">Save Changes</button>
+                        <button class="btn btn-danger ml-0" *ngIf="screenWidth>600" (click)="updateProfile(password, confirmpassword)">Save Changes</button>
+                        <button class="btn btn-outline-danger" routerLink="/profile">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

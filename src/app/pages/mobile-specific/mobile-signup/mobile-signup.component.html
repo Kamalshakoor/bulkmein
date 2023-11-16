@@ -1,0 +1,12 @@
+<div class="panel">
+    <h1 class="text-center mt-3">Create Account</h1>
+    <div class="input-group">
+        <input type="text" name="phone_prefix"  class="input input-phone-prefix" placeholder="+91" value="+91" disabled>
+        <input type="number" name="phone_postfix" id="" class="input input-phone-postfix" #phone>
+        <div class="error text-danger">{{phone_error}}</div>
+    </div>
+    
+    <input type="email" name="password" id="" class="form-control" placeholder="Email" #email>
+    <div class="error text-danger">{{email_error}}</div> <br>
+    <button class="btn btn-danger btn-submit" (click)="signup(phone,email)">Submit</button><br>
+</div>

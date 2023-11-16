@@ -1,0 +1,163 @@
+.panel{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  overflow-y: auto;
+  position: relative;
+  padding-bottom: 20px;
+}
+h1{
+  font-size: 40px !important;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.text-danger{
+  font-size: 17px;
+  float: left;
+  margin-bottom: 20px;
+}
+.panel .form-control{
+  width: 380px;
+  height: 45px;
+  border: 1px solid rgb(155, 154, 154);
+}
+.error{
+  font-size: 14px;
+  margin-top: 2px;
+  text-align: left;
+  align-items: start;
+  width: 68%;
+}
+.alert{
+  width: 380px;
+}
+.d-flex{
+  margin-top: 10px;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.radio{
+  height: 18px;
+  margin-right: 5px;
+}
+
+.inner-first{
+  color: rgb(73, 73, 73);
+}
+
+.d-flex a, .inner-first{
+  font-size: 17px;
+}
+
+.btn{
+  background-color: rgb(218, 18, 18);
+  margin-top: 40px;
+  width: 380px;
+  text-align: center;
+  height: 45px;
+  font-size: 19px;
+}
+.text-center{
+  margin-top: 50px;
+  text-align: center;
+  font-size: 17px;
+}
+.text-center a{
+  color: rgb(240, 56, 56);
+}
+.black_link{
+  color: black;
+  font-size: 17px;
+  margin-left: 30%;
+  font-weight:500;
+}
+a{
+  color: red;
+  cursor: pointer;
+}
+.d-grid{
+  display: inline-block;
+}
+
+.input-phone-prefix{
+  width: 60px !important;
+}
+.input-phone-postfix{
+  width: 300px !important;
+  margin-left: -90px !important;
+}
+
+.starthere-Sec{
+  margin-top:40px;
+}
+@media screen and (max-width:500px) {
+  h1{
+    font-size: 30px !important;
+  }
+  .panel{
+    width: 100%;
+    padding-bottom: 20px;
+    height: auto;
+  }
+  .panel .form-control{
+    width: 290px;
+  }
+  .alert{
+    width: 210px;
+  }
+  .btn{
+    width: 290px;
+  }
+  .d-flex .inner{
+    display: flex;
+    align-items: center; 
+  }
+  .d-flex a, .inner-first{
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+  }
+  .text-center{
+    font-size: 13px;
+    margin-left: 0px;
+  }
+  .fleft{
+    display:block;
+    float: inherit;
+  }
+  .fright{
+    display:block;
+    float: inherit;
+  }
+  .starthere-Sec{
+    margin-top:15px;
+  }
+}
+
+@media screen and (min-width:501px) and (max-width:670px){
+  .starthere-Sec{
+    margin-top:15px;
+  }
+  .panel{
+    width: 400px;
+  }
+  .alert{
+    width: 210px;
+  }
+  .panel .form-control{
+    width: 300px;
+  }
+  .d-flex .inner-first, .d-flex a{
+    font-size: 14px;
+  }
+  .btn{
+    width: 300px;
+  }
+}

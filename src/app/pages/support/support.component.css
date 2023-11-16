@@ -1,0 +1,109 @@
+.container{
+    font-family: Poppins;
+    margin-bottom: 100px;
+}
+h1{
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: bold;
+}
+.icon-red{
+    color: rgb(192, 2, 2);
+}
+.addresspanel{
+      padding: 50px 140px;
+}
+.btn-danger{
+    background-color: rgb(255, 36, 36);
+    border-color: rgb(255, 36, 36);
+    width: 100px;
+}
+.container .row-top{
+    justify-content: center;
+}
+.contactText{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    font-style: normal;
+    color: black;
+
+}
+.container .row .col-lg-12 .row-parent{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.container .contact-details-panel{
+    padding-top: 20px;
+    justify-content: center;
+}
+.form-control{
+    border-color: rgb(175, 175, 175);
+}
+.form-control:focus{
+    border-color: white;
+}
+.map{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 550px) {
+    .addresspanel{
+      padding: 15px;
+    }
+    h1{
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+    }
+    .mt-5.mobileno-Margin{
+      margin-top: 0 !important;
+    }
+    .container .row-top{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .container .row .col-lg-12 .row-parent{
+        flex-wrap: wrap;
+    }
+    .form-control{
+        width: 320px;
+    }
+    .map{
+        margin-top: -80px;
+    }
+    iframe{
+        height: 80px;
+        width: 300px;
+        border-radius: 8px;
+    }
+    .hide-in-mobile{
+        display: none;
+    }
+}
+@media screen and (min-width: 550px) and (max-width:599px) {
+    iframe{
+        height: 400px;
+        width: 400px;
+    }
+}
+@media screen and (min-width: 600px) and (max-width:850px) {
+    iframe{
+        height: 400px;
+        width: 400px;
+    }
+}
+
+@media screen and (min-width:1300px) {
+
+}

@@ -1,0 +1,71 @@
+<div class="container-profile">
+    <div class="col-lg-12">
+        <div class="row row-main">
+            <div class="col-lg-3">
+                <app-user-profile-sidebar active="my-orders"></app-user-profile-sidebar>
+            </div>
+            <div class="col-lg-9">
+                <div class="d-flex">
+                    <h1>My Orders</h1>
+                </div>
+                <hr>
+                <div class="my-orders-section">
+                    <!-- When there are no orders from user  -->
+                   <ng-container *ngIf="orders.length==0">
+                    <img src="assets/orders-avatar.svg" alt="" class="orders-avatar">
+                    <span class="no-orders-span">No orders yet</span>
+                    <p class="no-orders-p">
+                        Hello there! Ready to place your first order? Enjoy ₹500 off as a welcome bonus!"
+                    </p>
+                    <button class="btn btn-outline-danger" (click)="orderNow()">Order Now</button>
+                   </ng-container>
+                    <!-- End No Orders  -->
+                    <div class="card" *ngFor="let order of orders">
+                        <div class="card-heading">
+                            <div class="card-order-metadata">
+                                <span>Order ID</span>
+                                <p>{{order.orderId}}</p>
+                            </div>
+                            <div class="card-order-metadata">
+                                <span>Order Date</span>
+                                <p>{{order.orderedProducts[0].orderedAt}}</p>
+                            </div>
+                            <div class="card-order-metadata">
+                                <span>Total Amount</span>
+                                <p>₹ {{order.orderedProducts[0].totalAmount}}</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="order-details first-order-details">
+                                <img src="{{order.orderedProducts[0].productPreviewImage}}" alt="">
+                                <div class="order-details-inner">
+                                    <div class="order-line-item align-items-center">
+                                        <span>{{order.orderedProducts[0].productName}}</span>
+                                        <div class="order-status waiting">
+                                            {{order.orderedProducts[0].status}}
+                                        </div>
+                                    </div>
+                                    <div class="order-line-item mt-2">
+                                        <span>Qty:</span>
+                                        <p>1</p>
+                                    </div>
+                                    <div class="order-line-item">
+                                        <span>Deliver To:</span>
+                                        <p>
+                                            {{order.orderedProducts[0].address}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-details">
+                               <img src="assets/download-orderinvoice.svg" class="download-order-invoice-icon"/>
+                               <a style="cursor: pointer;" (click)="downloadInvoice(order.orderedProducts[0].documentsLink)">Download Invoice</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
